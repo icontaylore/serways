@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: database_service
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DATABASE: ${POSTGRES_DATABASE}
+      POSTGRES_PAS: ${POSTGRES_PAS}
+    ports:
+      - "${POSTGRES_PORT_ONE}:${POSTGRES_PORT_TWO}"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data/pgdata
+
+volumes:
+  pgdata:
+    driver: local

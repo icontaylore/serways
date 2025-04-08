@@ -1,0 +1,7 @@
+env: "local"
+storage_path: "./storage/api.db"
+grpc:
+  port: 50052
+  timeout: 3h
+token_ttl: 1h
+

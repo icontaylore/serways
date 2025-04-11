@@ -7,6 +7,8 @@ import (
 	"time"
 )
 
+//go:generate mockery --name=InterfaceRepository --dir=../repository --output=../test/mocks --with-expecter
+
 type InterfaceRepository interface {
 	Create(massa string) error
 	List() ([]models.DatabaseModels, error)

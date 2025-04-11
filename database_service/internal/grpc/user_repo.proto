@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package TODOservice;
+
+import "google/protobuf/timestamp.proto";
+
+message EntityModelsDB {
+  int32 id = 1;
+  string title = 2;
+  string isCompleted = 3;
+  bool Done = 4;
+  google.protobuf.Timestamp Created_at = 5;
+}
+
+message CreateEntityRequest {
+  string text = 1;
+}
+
+message CreateEntityResponse {
+  EntityModelsDB listEntity = 1;
+}
+
+message ListEntityRequest {
+}
+
+message ListEntityResponse {
+  EntityModelsDB listEntity = 1;
+}
+
+message DeleteEntityRequest {
+  int32 id = 1;
+}
+
+message DeleteEntityResponse {
+  bool status = 1;
+}
+
+message DoneEntityRequest {
+  int32 id = 1;
+}
+
+message DoneEntityResponse {
+  bool status = 1;
+}
+
+service EntityService {
+    rpc CreateEntity(CreateEntityRequest) returns (CreateEntityResponse);
+    rpc ListEntity(ListEntityRequest) returns (ListEntityResponse);
+    rpc DeleteEntity(DeleteEntityRequest) returns (DeleteEntityResponse);
+    rpc DoneEntity(DoneEntityRequest) returns (DoneEntityResponse);
+}
